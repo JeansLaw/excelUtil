@@ -1,5 +1,6 @@
 import xlrd
-import xlutils
+# import xlutils
+from xlutils.copy import copy
 import xlwt
 import logging
 
@@ -30,6 +31,7 @@ class ExcelUtil(object):
             return self
 
         def save(self):
+            print("File has been saved:{0}".format(self.path))
             self.wb.save(self.path)
 
     # 追加数据
@@ -42,7 +44,7 @@ class ExcelUtil(object):
             self.path = path
             wb = xlrd.open_workbook(path)
             self.count = wb.sheet_by_index(0).nrows
-            self.ws = xlutils.copy.copy(wb)
+            self.ws = copy(wb)
             self.sheet = self.ws.get_sheet(0)
 
         def write(self, arr=[]):
