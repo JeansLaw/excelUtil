@@ -1,5 +1,3 @@
-#Demo
-
 ##新建Excel文件
     import os
     import jerryExcel
