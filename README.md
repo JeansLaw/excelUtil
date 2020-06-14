@@ -1,4 +1,7 @@
+安装方法：pip install jerryExcel 
+
 ##新建Excel文件
+
     import os
     import jerryExcel
     
