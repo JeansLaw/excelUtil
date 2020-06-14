@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="jerryExcel",
-    version="1.0.0",
+    version="1.0.1",
     author="JerryLaw",
     author_email="623487850@qq.com",
     description="A tool for excel",
