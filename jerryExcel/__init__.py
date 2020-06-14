@@ -3,7 +3,7 @@ import xlutils
 import xlwt
 import logging
 
-logger=logging.getLogger(__name__)
+_logger=logging.getLogger(__name__)
 class ExcelUtil(object):
     # New File
     class NewExcelFile():
@@ -18,10 +18,10 @@ class ExcelUtil(object):
             self.sheet = self.wb.add_sheet(sheetName)
             self.count = 0
 
-        def write(self, *arr):
+        def write(self, arr=[]):
             '''
 
-            :param arr:写入的数据->tuple
+            :param arr:写入的数据->list
             :return: self
             '''
             for i in range(len(arr)):
@@ -45,7 +45,7 @@ class ExcelUtil(object):
             self.ws = xlutils.copy.copy(wb)
             self.sheet = self.ws.get_sheet(0)
 
-        def write(self, *arr):
+        def write(self, arr=[]):
             '''
 
             :param arr:写入的数据->list
@@ -57,6 +57,7 @@ class ExcelUtil(object):
             return self
 
         def save(self):
+            print("File has been save:{0}".format(self.path))
             self.ws.save(self.path)
 
     # read only
@@ -78,7 +79,7 @@ class ExcelUtil(object):
                 self.__cursorSheet = s.sheet_by_index(0)
                 self.__index = 0
             except Exception as e:
-                logger.error(e)
+                _logger.error(e)
                 # print("errorMsg from jerryExcel:", e)
 
         def getDataCount(self):
